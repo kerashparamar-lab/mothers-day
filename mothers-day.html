@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day ❤️</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd4e9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts animation */
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            opacity: 0;
+            animation: floatUp 6s infinite ease-in;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1.5);
+            }
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d81b60;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #c2185b;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Photo Gallery Section */
+        .gallery-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(216, 27, 96, 0.2);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #c2185b;
+            border: 3px dashed #f06292;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+
+        .photo-placeholder-text {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+        .photo-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #880e4f;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Message Section */
+        .message-section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+
+        .message-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d81b60;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .message-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #c2185b;
+            text-align: right;
+            margin-top: 30px;
+            padding-right: 20px;
+        }
+
+        /* Decorative flowers */
+        .flower {
+            position: absolute;
+            font-size: 3rem;
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .flower-1 {
+            top: 20px;
+            left: 20px;
+            color: #ff69b4;
+        }
+
+        .flower-2 {
+            top: 20px;
+            right: 20px;
+            color: #ff1493;
+        }
+
+        .flower-3 {
+            bottom: 20px;
+            left: 20px;
+            color: #ff69b4;
+        }
+
+        .flower-4 {
+            bottom: 20px;
+            right: 20px;
+            color: #ff1493;
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleAnim 1s ease-out forwards;
+            z-index: 100;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .photo-placeholder {
+                height: 250px;
+            }
+            .message-section {
+                padding: 30px 20px;
+            }
+            .message-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Pulse animation for hearts */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .pulse-heart {
+            display: inline-block;
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Header Section -->
+    <div class="header-section">
+        <h1 class="main-title">Happy Mother's Day <span class="pulse-heart">❤️</span></h1>
+        <p class="subtitle">To the most amazing mom in the world</p>
+    </div>
+
+    <!-- Photo Gallery Section -->
+    <div class="gallery-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="photo-card" style="animation-delay: 0.1s">
+                        <div class="photo-placeholder">
+                            <div class="photo-placeholder-text">
+                                <i class="fas fa-camera"></i>
+                                <div>Add Mom's Beautiful Photo Here</div>
+                            </div>
+                        </div>
+                        <p class="photo-caption">You make every moment special ✨</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="photo-card" style="animation-delay: 0.2s">
+                        <div class="photo-placeholder">
+                            <div class="photo-placeholder-text">
+                                <i class="fas fa-camera"></i>
+                                <div>Add Mom's Beautiful Photo Here</div>
+                            </div>
+                        </div>
+                        <p class="photo-caption">Your smile lights up our world 🌟</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="photo-card" style="animation-delay: 0.3s">
+                        <div class="photo-placeholder">
+                            <div class="photo-placeholder-text">
+                                <i class="fas fa-camera"></i>
+                                <div>Add Mom's Beautiful Photo Here</div>
+                            </div>
+                        </div>
+                        <p class="photo-caption">Forever grateful for your love 💕</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="photo-card" style="animation-delay: 0.4s">
+                        <div class="photo-placeholder">
+                            <div class="photo-placeholder-text">
+                                <i class="fas fa-camera"></i>
+                                <div>Add Mom's Beautiful Photo Here</div>
+                            </div>
+                        </div>
+                        <p class="photo-caption">You're my hero and my inspiration 🦋</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Section -->
+    <div class="container">
+        <div class="message-section">
+            <div class="flower flower-1">🌸</div>
+            <div class="flower flower-2">🌺</div>
+            <div class="flower flower-3">🌷</div>
+            <div class="flower flower-4">🌹</div>
+            
+            <h2 class="message-title">A Message From My Heart</h2>
+            <div class="message-text">
+                <p>Dear Mom,</p>
+                <p>Words cannot express how grateful I am for everything you've done for me. Your unconditional love, endless patience, and unwavering support have shaped me into the person I am today. You've been my teacher, my friend, my confidant, and my biggest cheerleader.</p>
+                
+                <p>Thank you for the countless sacrifices you've made, the late nights you stayed up when I was sick, the words of encouragement when I felt like giving up, and the warm hugs that made everything better. Your strength inspires me, your kindness humbles me, and your love sustains me.</p>
+                
+                <p>You have a heart of gold and a spirit that shines brighter than any star. Every laugh we share, every tear you've wiped away, and every moment we've spent together is a treasure I hold dear to my heart.</p>
+                
+                <p>On this special day, I want you to know that you are loved beyond measure, appreciated more than you know, and cherished every single day. You're not just my mother – you're my hero, my role model, and my best friend.</p>
+                
+                <p>Happy Mother's Day to the most wonderful, beautiful, and loving mom in the entire world. I love you more than words can say! ❤️</p>
+            </div>
+            <div class="signature">With all my love, always 💕</div>
+        </div>
+    </div>
+
+    <!-- Footer spacing -->
+    <div style="height: 80px;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heartContainer = document.getElementById('heartContainer');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heartContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Generate hearts periodically
+        setInterval(createHeart, 800);
+
+        // Create sparkles on click
+        document.addEventListener('click', function(e) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            sparkle.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.photo-card, .message-section').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add random floating hearts on page load
+        for(let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+    </script>
+</body>
+</html>
